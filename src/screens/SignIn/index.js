@@ -16,9 +16,9 @@ import {
 
 import Api from '../../Api';
 
-import SignInput from '../../components/SignInput';
+import InputCustom from '../../components/InputCustom';
 
-import BarberLogo from '../../assets/barber.svg';
+import Logo from '../../assets/tfs.svg';
 import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
@@ -32,6 +32,8 @@ export default () => {
   const handleSignClick = async () => {
     if (emailField != '' && passwordField != '') {
       let json = await Api.signIn(emailField, passwordField);
+      try {
+      } catch (error) {}
 
       if (json.token) {
         await AsyncStorage.setItem('token', json.token);
@@ -62,17 +64,17 @@ export default () => {
 
   return (
     <Container>
-      <BarberLogo width="100%" height="160" />
+      <Logo width="100%" height="160" />
 
       <InputArea>
-        <SignInput
+        <InputCustom
           IconSvg={EmailIcon}
           placeholder="Digite seu e-mail"
           value={emailField}
           onChangeText={t => setEmailField(t)}
         />
 
-        <SignInput
+        <InputCustom
           IconSvg={LockIcon}
           placeholder="Digite sua senha"
           value={passwordField}

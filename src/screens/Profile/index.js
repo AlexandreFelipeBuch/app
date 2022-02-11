@@ -1,7 +1,6 @@
 import React from 'react';
-import {Text, Button} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {Container} from './styles';
+import {Container, ButtonLogout, ButtonText} from './styles';
 
 import Api from '../../Api';
 
@@ -17,8 +16,9 @@ export default () => {
 
   return (
     <Container>
-      <Text>Profile</Text>
-      <Button title="Sair" onPress={handleLogoutClick} />
+      <ButtonLogout onPress={handleLogoutClick}>
+        <ButtonText>Logout</ButtonText>
+      </ButtonLogout>
     </Container>
   );
 };

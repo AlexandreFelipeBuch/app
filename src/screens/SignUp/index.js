@@ -13,11 +13,11 @@ import {
   SignMessageButtonTextBold,
 } from './styles';
 
-import SignInput from '../../components/SignInput';
+import InputCustom from '../../components/InputCustom';
 
 import Api from '../../Api';
 
-import BarberLogo from '../../assets/barber.svg';
+import Logo from '../../assets/tfs.svg';
 import PersonIcon from '../../assets/person.svg';
 import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
@@ -63,24 +63,24 @@ export default () => {
 
   return (
     <Container>
-      <BarberLogo width="100%" height="160" />
+      <Logo width="100%" height="160" />
 
       <InputArea>
-        <SignInput
+        <InputCustom
           IconSvg={PersonIcon}
           placeholder="Digite seu nome"
           value={nameField}
           onChangeText={t => setNameField(t)}
         />
 
-        <SignInput
+        <InputCustom
           IconSvg={EmailIcon}
           placeholder="Digite seu e-mail"
           value={emailField}
           onChangeText={t => setEmailField(t)}
         />
 
-        <SignInput
+        <InputCustom
           IconSvg={LockIcon}
           placeholder="Digite sua senha"
           value={passwordField}

@@ -6,7 +6,7 @@ import {useNavigation} from '@react-navigation/native';
 import {UserContext} from '../../contexts/UserContext';
 import Api from '../../Api';
 
-import BarberLogo from '../../assets/barber.svg';
+import Logo from '../../assets/tfs.svg';
 
 export default () => {
   const {dispatch: userDispatch} = useContext(UserContext);
@@ -31,18 +31,18 @@ export default () => {
             routes: [{name: 'MainTab'}],
           });
         } else {
-          navigation.navigate('SignIn');
+          navigation.navigate('OnBoarding');
         }
-      } else {
-        navigation.navigate('SignIn');
       }
     };
     checkToken();
   }, []);
 
+  const handleBackButton = () => {};
+
   return (
     <Container>
-      <BarberLogo width="100%" height="160" />
+      <Logo width="100%" height="160" />
       <LoadingIcon size="large" color="#FFFFFF" />
     </Container>
   );
