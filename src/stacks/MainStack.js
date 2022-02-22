@@ -6,6 +6,7 @@ import OnBoarding from '../screens/OnBoarding';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import MainTab from '../stacks/MainTab';
+
 import MainDrawer from './MainDrawer';
 
 const Stack = createStackNavigator();

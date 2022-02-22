@@ -1,0 +1,33 @@
+       
+        import InputCustom from '../../components/InputCustom';
+        import Header from '../../components/Header';
+        import BackIcon from '../../assets/icons/arrow-left.svg';
+        import {Colors} from '../../config/Colors';
+        ${Colors.}
+
+        <Header title="Alterar Senha" IconSvg={BackIcon} />
+
+        <InputCustom
+         placeholder="Digite seu nome"
+         value={nameField}
+         onChangeText={t => setNameField(t)}
+        />
+       
+        import ButtonCustom from '../../components/ButtonCustom'; 
+        <ButtonCustom
+          title="Login"
+          bgcolor={Colors.secondary}
+          color={Colors.text}
+          onPress={handleSignClick}/> 
+        
+        
+
+       
+         export const ButtonArea = styled.View`
+         width: 100%;
+         flex: 1;
+         justify-content: flex-end;
+         padding: 20px;
+       `;
+       
+

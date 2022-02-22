@@ -29,32 +29,38 @@ export default () => {
   const [emailField, setEmailField] = useState('');
   const [passwordField, setPasswordField] = useState('');
 
-  const handleSignClick = async () => {
-    if (emailField != '' && passwordField != '') {
-      let json = await Api.signIn(emailField, passwordField);
-      try {
-      } catch (error) {}
-
-      if (json.token) {
-        await AsyncStorage.setItem('token', json.token);
-
-        userDispatch({
-          type: 'setAvatar',
-          payload: {
-            avatar: json.data.avatar,
-          },
-        });
-
-        navigation.reset({
-          routes: [{name: 'MainTab'}],
-        });
-      } else {
-        alert('E-mail e/ou senha errados!');
-      }
-    } else {
-      alert('Preencha os campos!');
-    }
+  const handleSignClick = () => {
+    navigation.reset({
+      routes: [{name: 'MainTab'}],
+    });
   };
+
+  // const handleSignClick = async () => {
+  //   if (emailField != '' && passwordField != '') {
+  //     let json = await Api.signIn(emailField, passwordField);
+  //     try {
+  //     } catch (error) {}
+
+  //     if (json.token) {
+  //       await AsyncStorage.setItem('token', json.token);
+
+  //       userDispatch({
+  //         type: 'setAvatar',
+  //         payload: {
+  //           avatar: json.data.avatar,
+  //         },
+  //       });
+
+  //       navigation.reset({
+  //         routes: [{name: 'MainTab'}],
+  //       });
+  //     } else {
+  //       alert('E-mail e/ou senha errados!');
+  //     }
+  //   } else {
+  //     alert('Preencha os campos!');
+  //   }
+  // };
 
   const handleMessageButtonClick = () => {
     navigation.reset({

@@ -33,22 +33,22 @@ export default props => {
       screen: 'Home',
     },
     {
-      title: 'Profile',
+      title: 'Perfil',
       icon: <Profile width="25px" height="25px" fill="#8a43cc" />,
       screen: 'Profile',
     },
     {
-      title: 'Appointments',
+      title: 'Agendamentos',
       icon: <Appointments width="25px" height="25px" fill="#8a43cc" />,
       screen: 'Appointments',
     },
     {
-      title: 'Search',
+      title: 'Busca',
       icon: <Search width="25px" height="25px" fill="#8a43cc" />,
       screen: 'Search',
     },
     {
-      title: 'Favorites',
+      title: 'Favoritos',
       icon: <Favorites width="25px" height="25px" fill="#8a43cc" />,
       screen: 'Favorites',
     },
