@@ -3,11 +3,11 @@ import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {UserContext} from '../../contexts/UserContext';
+import ButtonCustom from '../../components/ButtonCustom';
+import {Colors} from '../../config/Colors';
 import {
   Container,
   InputArea,
-  CustomButton,
-  CustomButtonText,
   SignMessageButton,
   SignMessageButtonText,
   SignMessageButtonTextBold,
@@ -23,39 +23,39 @@ import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
 export default () => {
-  const {dispatch: userDispatch} = useContext(UserContext);
+  // const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
   const [nameField, setNameField] = useState('');
   const [emailField, setEmailField] = useState('');
   const [passwordField, setPasswordField] = useState('');
 
-  const handleSignClick = async () => {
-    if (nameField != '' && emailField != '' && passwordField != '') {
-      let res = await Api.signUp(nameField, emailField, passwordField);
+  // const handleSignClick = async () => {
+  //   if (nameField != '' && emailField != '' && passwordField != '') {
+  //     let res = await Api.signUp(nameField, emailField, passwordField);
 
-      if (res.token) {
-        await AsyncStorage.setItem('token', res.token);
+  //     if (res.token) {
+  //       await AsyncStorage.setItem('token', res.token);
 
-        userDispatch({
-          type: 'setAvatar',
-          payload: {
-            avatar: res.data.avatar,
-          },
-        });
+  //       userDispatch({
+  //         type: 'setAvatar',
+  //         payload: {
+  //           avatar: res.data.avatar,
+  //         },
+  //       });
 
-        navigation.reset({
-          routes: [{name: 'MainTab'}],
-        });
-      } else {
-        alert('Erro: ' + res.error);
-      }
-    } else {
-      alert('Preencha os campos');
-    }
-  };
+  //       navigation.reset({
+  //         routes: [{name: 'MainTab'}],
+  //       });
+  //     } else {
+  //       alert('Erro: ' + res.error);
+  //     }
+  //   } else {
+  //     alert('Preencha os campos');
+  //   }
+  // };
 
-  const handleMessageButtonClick = () => {
+  const handleBackButton = () => {
     navigation.reset({
       routes: [{name: 'SignIn'}],
     });
@@ -88,12 +88,15 @@ export default () => {
           password={true}
         />
 
-        <CustomButton onPress={handleSignClick}>
-          <CustomButtonText>CADASTRAR</CustomButtonText>
-        </CustomButton>
+        <ButtonCustom
+          title="Cadastrar"
+          bgcolor={Colors.primary}
+          color={Colors.white}
+          onPress={handleBackButton}
+        />
       </InputArea>
 
-      <SignMessageButton onPress={handleMessageButtonClick}>
+      <SignMessageButton onPress={handleBackButton}>
         <SignMessageButtonText>Já possui uma conta?</SignMessageButtonText>
         <SignMessageButtonTextBold>Faça Login</SignMessageButtonTextBold>
       </SignMessageButton>

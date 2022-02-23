@@ -1,6 +1,8 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Colors} from '../../config/Colors';
+import ButtonCustom from '../../components/ButtonCustom';
 
 import {UserContext} from '../../contexts/UserContext';
 
@@ -79,7 +81,6 @@ export default () => {
           value={emailField}
           onChangeText={t => setEmailField(t)}
         />
-
         <InputCustom
           IconSvg={LockIcon}
           placeholder="Digite sua senha"
@@ -87,10 +88,12 @@ export default () => {
           onChangeText={t => setPasswordField(t)}
           password={true}
         />
-
-        <CustomButton onPress={handleSignClick}>
-          <CustomButtonText>LOGIN</CustomButtonText>
-        </CustomButton>
+        <ButtonCustom
+          title="Login"
+          bgcolor={Colors.primary}
+          color={Colors.white}
+          onPress={handleSignClick}
+        />
       </InputArea>
 
       <SignMessageButton onPress={handleMessageButtonClick}>
