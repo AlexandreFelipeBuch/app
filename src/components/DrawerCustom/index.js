@@ -20,6 +20,7 @@ import Appointments from '../../assets/today.svg';
 import Search from '../../assets/search.svg';
 import Favorites from '../../assets/favorite.svg';
 import Exit from '../../assets/exit.svg';
+import {Colors} from '../../config/Colors';
 
 import Api from '../../Api';
 
@@ -29,27 +30,27 @@ export default props => {
   const menus = [
     {
       title: 'Home',
-      icon: <Home width="25px" height="25px" fill="#8a43cc" />,
+      icon: <Home width="25px" height="25px" fill={Colors.primary} />,
       screen: 'Home',
     },
     {
       title: 'Perfil',
-      icon: <Profile width="25px" height="25px" fill="#8a43cc" />,
+      icon: <Profile width="25px" height="25px" fill={Colors.primary} />,
       screen: 'Profile',
     },
     {
       title: 'Agendamentos',
-      icon: <Appointments width="25px" height="25px" fill="#8a43cc" />,
+      icon: <Appointments width="25px" height="25px" fill={Colors.primary} />,
       screen: 'Appointments',
     },
     {
       title: 'Busca',
-      icon: <Search width="25px" height="25px" fill="#8a43cc" />,
+      icon: <Search width="25px" height="25px" fill={Colors.primary} />,
       screen: 'Search',
     },
     {
       title: 'Favoritos',
-      icon: <Favorites width="25px" height="25px" fill="#8a43cc" />,
+      icon: <Favorites width="25px" height="25px" fill={Colors.primary} />,
       screen: 'Favorites',
     },
   ];
@@ -64,7 +65,7 @@ export default props => {
   return (
     <DrawerArea>
       <DrawerLogoArea>
-        <Logo width="40" height="40" />
+        <Logo width="100" height="90" />
       </DrawerLogoArea>
       <DrawerScroller>
         {menus.map((item, index) => (
@@ -80,7 +81,7 @@ export default props => {
 
       <FooterArea>
         <FooterInfo>
-          <Exit width="25px" height="25px" fill="#8a43cc" />
+          <Exit width="25px" height="25px" fill={Colors.primary} />
           <ButtonBack onPress={handleLogoutClick}>
             <MenuSquare></MenuSquare>
 

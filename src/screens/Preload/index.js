@@ -7,9 +7,10 @@ import {UserContext} from '../../contexts/UserContext';
 import Api from '../../Api';
 
 import Logo from '../../assets/tfs.svg';
+import {Colors} from '../../config/Colors';
 
 export default () => {
-  const {dispatch: userDispatch} = useContext(UserContext);
+  // const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
   // useEffect(() => {
@@ -37,11 +38,11 @@ export default () => {
   //   };
   //   checkToken();
   // }, []);
-
   navigation.navigate('OnBoarding');
+
   return (
     <Container>
-      <Logo width="100%" height="160" />
+      <Logo width="100%" height="160" fill={Colors.primary} />
       <LoadingIcon size="large" color="#FFFFFF" />
     </Container>
   );

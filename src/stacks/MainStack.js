@@ -5,9 +5,11 @@ import Preload from '../screens/Preload';
 import OnBoarding from '../screens/OnBoarding';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
-import MainTab from '../stacks/MainTab';
-
+import MainTab from './MainTab';
 import MainDrawer from './MainDrawer';
+import ResetPasswordScreen from '../screens/ResetPasswordScreen';
+import EmailVerificationScreen from '../screens/EmailVerificationScreen';
+import ConfirmationScreen from '../screens/ConfirmationScreen';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +28,12 @@ export default () => (
       name="MainDrawer"
       component={MainDrawer}
       options={{headerShown: false}}
+    />
+    <Stack.Screen name="ResetPasswordScreen" component={ResetPasswordScreen} />
+    <Stack.Screen name="ConfirmationScreen" component={ConfirmationScreen} />
+    <Stack.Screen
+      name="EmailVerificationScreen"
+      component={EmailVerificationScreen}
     />
   </Stack.Navigator>
 );

@@ -1,30 +1,59 @@
 import React, {useState} from 'react';
-import ModalCustom from '../../components/ModalCustom';
 import {useNavigation} from '@react-navigation/native';
-import {Container, ButtonModal, ButtonText, ButtonDrawer} from './styles';
+import {Container, LogoArea, GuiasArea} from './styles';
+import CardsGuia from '../../components/CardGuias';
+import Logo from '../../assets/tfs.svg';
 
 export default () => {
-  const [showModal, setShowModal] = useState(false);
-  const navigation = useNavigation();
+  const {navigate} = useNavigation();
 
-  const handleServiceChoose = () => {
-    setShowModal(true);
+  const guias = [
+    {
+      id: 1,
+      icon: 'menu',
+      title: 'Drawer',
+      namescreen: 'MainDrawer',
+    },
+
+    {
+      id: 2,
+      icon: 'table-of-contents',
+      title: 'MainTab',
+      namescreen: 'MainTab',
+    },
+
+    {
+      id: 3,
+      icon: 'store',
+      title: 'Lojas',
+      namescreen: 'Home',
+    },
+
+    {id: 4, icon: 'account', title: 'Profile', namescreen: 'Profile'},
+  ];
+  const handleGo = screenName => {
+    navigate(screenName);
   };
-  const handleDrawerOpen = () => {
-    navigation.reset({
-      routes: [{name: 'MainDrawer'}],
-    });
-  };
+
+  const _renderItem = ({item}) => (
+    <CardsGuia
+      data={item}
+      onPress={dataItem => handleGo(dataItem.namescreen)}
+    />
+  );
+
   return (
     <Container>
-      <ButtonModal onPress={handleServiceChoose}>
-        <ButtonText>Modal Custom</ButtonText>
-      </ButtonModal>
-      <ModalCustom show={showModal} setShow={setShowModal} />
+      <LogoArea>
+        <Logo width="80%" height="120" />
+      </LogoArea>
 
-      <ButtonDrawer onPress={handleDrawerOpen}>
-        <ButtonText>Drawer Custom</ButtonText>
-      </ButtonDrawer>
+      <GuiasArea
+        data={guias}
+        renderItem={_renderItem}
+        numColumns={2}
+        keyExtractor={item => item.id}
+      />
     </Container>
   );
 };

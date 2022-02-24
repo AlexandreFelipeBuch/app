@@ -4,35 +4,25 @@ import AppIntroSlider from 'react-native-app-intro-slider';
 import {Image, View, Text, StyleSheet, Platform} from 'react-native';
 
 import Images from '../../assets/Images';
+import {Colors} from '../../config/Colors';
 
 const slides = [
   {
     title: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit',
-    description: 'TFS',
+    description: 'Trixx FS',
     img: Images.IllustAircraft,
-    backgroundColor: '#8a43cc',
-    fontColor: '#000',
+    backgroundColor: `${Colors.primary}`,
     level: 20,
   },
   {
     title:
       'Aliquid eveniet consequuntur facilis amet voluptatibus accusamus perspiciatis?',
-    description: 'TFS',
+    description: 'Trixx FS',
     img: Images.IllustSolution,
-    backgroundColor: '#8a43cc',
-    fontColor: '#000',
-    level: 20,
-  },
-  {
-    title: 'Lorem, ipsum dolor sit amet consectetur adipisicing elitwn',
-    description: 'TFS',
-    img: Images.IllustStart,
-    backgroundColor: '#8a43cc',
-    fontColor: '#000',
+    backgroundColor: `${Colors.primary}`,
     level: 20,
   },
 ];
-
 const OnBoardingCustom = () => {
   const navigation = useNavigation();
   const _renderItem = ({item}) => {
@@ -58,6 +48,9 @@ const OnBoardingCustom = () => {
       showSkipButton={true}
       showNextButton={true}
       showDoneButton={true}
+      nextLabel="Próxima"
+      skipLabel="Anterior"
+      doneLabel="Confirmar"
       buttonTextStyle={styles.buttonText}
       onDone={_onDone}
       onSkip={_onDone}
@@ -82,14 +75,14 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   title: {
-    color: '#fff',
+    color: `${Colors.background}`,
     fontSize: 25,
     textAlign: 'center',
     fontWeight: 'bold',
   },
   description: {
     marginTop: 10,
-    color: '#fff',
+    color: `${Colors.background}`,
     fontSize: 18,
     textAlign: 'center',
   },

@@ -8,7 +8,7 @@ export const Container = styled.TouchableOpacity.attrs({
   margin: 8px 4px;
   align-items: center;
   justify-content: center;
-  border-radius: 50px;
+  border-radius: 15px;
 `;
 
 export const ButtonText = styled.Text`

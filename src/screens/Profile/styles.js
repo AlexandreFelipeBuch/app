@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {Colors} from '../../config/Colors';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -9,7 +10,7 @@ export const Container = styled.SafeAreaView`
 export const ButtonLogout = styled.TouchableOpacity`
   width: 80%;
   height: 60px;
-  background-color: #8a43cc;
+  background-color: ${Colors.primary};
   border-radius: 30px;
   justify-content: center;
   align-items: center;

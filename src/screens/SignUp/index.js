@@ -3,8 +3,6 @@ import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {UserContext} from '../../contexts/UserContext';
-import ButtonCustom from '../../components/ButtonCustom';
-import {Colors} from '../../config/Colors';
 import {
   Container,
   InputArea,
@@ -12,6 +10,7 @@ import {
   SignMessageButtonText,
   SignMessageButtonTextBold,
 } from './styles';
+import {Colors} from '../../config/Colors';
 
 import InputCustom from '../../components/InputCustom';
 
@@ -21,14 +20,15 @@ import Logo from '../../assets/tfs.svg';
 import PersonIcon from '../../assets/person.svg';
 import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
+import ButtonCustom from '../../components/ButtonCustom';
 
 export default () => {
   // const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
-  const [nameField, setNameField] = useState('');
-  const [emailField, setEmailField] = useState('');
-  const [passwordField, setPasswordField] = useState('');
+  // const [nameField, setNameField] = useState('');
+  // const [emailField, setEmailField] = useState('');
+  // const [passwordField, setPasswordField] = useState('');
 
   // const handleSignClick = async () => {
   //   if (nameField != '' && emailField != '' && passwordField != '') {
@@ -60,31 +60,36 @@ export default () => {
       routes: [{name: 'SignIn'}],
     });
   };
+  const handleConfirmButton = () => {
+    navigation.reset({
+      routes: [{name: 'ConfirmationScreen'}],
+    });
+  };
 
   return (
     <Container>
-      <Logo width="100%" height="160" />
+      <Logo width="70%" height="130" />
 
       <InputArea>
         <InputCustom
           IconSvg={PersonIcon}
           placeholder="Digite seu nome"
-          value={nameField}
-          onChangeText={t => setNameField(t)}
+          // value={nameField}
+          // onChangeText={t => setNameField(t)}
         />
 
         <InputCustom
           IconSvg={EmailIcon}
           placeholder="Digite seu e-mail"
-          value={emailField}
-          onChangeText={t => setEmailField(t)}
+          // value={emailField}
+          // onChangeText={t => setEmailField(t)}
         />
 
         <InputCustom
           IconSvg={LockIcon}
           placeholder="Digite sua senha"
-          value={passwordField}
-          onChangeText={t => setPasswordField(t)}
+          // value={passwordField}
+          // onChangeText={t => setPasswordField(t)}
           password={true}
         />
 
@@ -92,7 +97,7 @@ export default () => {
           title="Cadastrar"
           bgcolor={Colors.primary}
           color={Colors.white}
-          onPress={handleBackButton}
+          onPress={handleConfirmButton}
         />
       </InputArea>
 

@@ -1,25 +1,22 @@
 import React, {useState, useContext} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Colors} from '../../config/Colors';
-import ButtonCustom from '../../components/ButtonCustom';
 
 import {UserContext} from '../../contexts/UserContext';
 
 import {
   Container,
   InputArea,
-  CustomButton,
-  CustomButtonText,
   SignMessageButton,
   SignMessageButtonText,
   SignMessageButtonTextBold,
 } from './styles';
+import {Colors} from '../../config/Colors';
+import ButtonCustom from '../../components/ButtonCustom';
 
 import Api from '../../Api';
 
 import InputCustom from '../../components/InputCustom';
-
 import Logo from '../../assets/tfs.svg';
 import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
@@ -64,15 +61,20 @@ export default () => {
   //   }
   // };
 
-  const handleMessageButtonClick = () => {
+  const handleSignUpButton = () => {
     navigation.reset({
       routes: [{name: 'SignUp'}],
+    });
+  };
+  const handleNextButton = () => {
+    navigation.reset({
+      routes: [{name: 'ResetPasswordScreen'}],
     });
   };
 
   return (
     <Container>
-      <Logo width="100%" height="160" />
+      <Logo width="100%" height="160" fill={Colors.primary} />
 
       <InputArea>
         <InputCustom
@@ -81,6 +83,7 @@ export default () => {
           value={emailField}
           onChangeText={t => setEmailField(t)}
         />
+
         <InputCustom
           IconSvg={LockIcon}
           placeholder="Digite sua senha"
@@ -88,6 +91,7 @@ export default () => {
           onChangeText={t => setPasswordField(t)}
           password={true}
         />
+
         <ButtonCustom
           title="Login"
           bgcolor={Colors.primary}
@@ -96,11 +100,15 @@ export default () => {
         />
       </InputArea>
 
-      <SignMessageButton onPress={handleMessageButtonClick}>
+      <SignMessageButton onPress={handleSignUpButton}>
         <SignMessageButtonText>
           Ainda não possui uma conta?
         </SignMessageButtonText>
         <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
+      </SignMessageButton>
+      <SignMessageButton onPress={handleNextButton}>
+        <SignMessageButtonText>Esqueceu sua senha?</SignMessageButtonText>
+        <SignMessageButtonTextBold>Clique aqui</SignMessageButtonTextBold>
       </SignMessageButton>
     </Container>
   );
